@@ -1,0 +1,34 @@
+
+
+<form class="form">
+  <label>Movie search</label>
+  <input type="text" class="span3" placeholder="Type something…" ng-model="movie.search">
+  <span class="help-block"></span>
+  <button type="submit" class="btn" ng-click="reload(movie.search);">Submit</button>
+</form>
+
+
+
+
+<hr/>
+
+<div class="row">
+  
+  <div class="progress progress-striped
+       active" ng-show="movies == undefined">
+    <div class="bar"
+         style="width: 60%;"></div> 
+  </div>
+  
+  <ul class="thumbnails">
+          <li class="span5" ng-repeat="movie in movies.feed.entry">
+            <div class="thumbnail" >
+              <img src="{{movie.media$group.media$thumbnail[0].url}}" width="280" height="210" alt="">
+              <div class="caption">
+                <h5>{{movie.title.$t.slice(0,25)}}...</h5>
+                <p>{{movie.content.$t.slice(0,25)}}...</p>
+              </div>
+            </div>
+          </li>
+  </ul>
+</div>
